@@ -1,0 +1,35 @@
+
+% \vspace*{2in}
+
+It took ten months to write this book between October 2017 and July 2018. That was pleasant. Then it took four months to proof-read it from August 2018 to November 2018. That was very unpleasant.\\
+\par
+I worked on it whenever I could find the time on evenings and weekends, but mostly favoring the 7am to 9am slot. The text was written in \LaTeX{} with Sublime Text 3.0 editor and compiled with \cw{pdflatex}. The \cw{.pdf} can be built with a single command.\\
+\par
+\tcode{compile.txt}
+\par
+To improve compilation time, \cw{book.tex} is a simple list of \cw{\textbackslash subfile} commands. Based on which section of the book was being worked on, other lines were commented out. This decreased the build time from several minutes to a few seconds and made \LaTeX{} bearable.\\
+\par
+ Drawings were made with Inkscape, saved to \cw{.svg} and converted to \cw{.eps} to incorporate nicely with \cw{pdflatex} compiler. Screenshots were cleaned up with Adobe Photoshop CC. The font used is Computer Modern Sans Serif 10pts by Donald E. Knuth.\\
+ \par
+ \begin{figure}[H]
+\centering  
+\begin{tabularx}{\textwidth}{ L{1} | C{1} }
+  \specialrule{1pt}{0pt}{0pt}
+  \textbf{Description} & \textbf{Value} \\
+  \specialrule{1pt}{0pt}{0pt}
+  Number of files & 880 \\
+Number of \cw{.tex} files & 95 \\
+Number of \cw{.png} files & 561\\
+Number of \cw{.svg} files& 102 \\
+\specialrule{1pt}{0pt}{0pt}
+Build time (300 dpi) & 2 minutes 20 seconds\\
+Final PDF size (300 dpi) & 387,054,465 bytes\\
+\specialrule{1pt}{0pt}{0pt}
+Build time (150 dpi) & 47 seconds\\
+Final PDF size (150 dpi) & 89,060,075 byte\\
+   \specialrule{1pt}{0pt}{0pt}
+\end{tabularx}
+\end{figure}
+
+
+

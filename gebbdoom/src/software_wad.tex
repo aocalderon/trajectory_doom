@@ -1,0 +1,139 @@
+\section{Filesystem}
+\doom{} barely interacts with the OS's file system. During a typical gaming session, the engine \cw{DOOM.EXE} only needs to open \cw{DOOM.WAD} in order to access its assets. Therefore, the engine does not deal with files but rather with something called lumps which are the atomic unit of a \cw{.wad} archive and its associated caching system.\\ 
+ \par
+ While \cw{DOOM.EXE} remained relatively stable, the asset archive kept on growing, with each new game being more elaborate than the last, as seen in the following list of \cw{.wad}s.\\
+ \par
+ \begin{figure}[H]
+\centering  
+\begin{tabularx}{\textwidth}{ L{1.3} L{0.7} R{1} R{1}}
+  \toprule
+  \textbf{Game} &  \textbf{Archive name} & \textbf{\# Lumps} & \textbf{Size in bytes}\\
+
+  \toprule 
+  Doom Shareware          & \cw{DOOM1.WAD}    & 1264 & 4,196,020 \\
+  Doom Registered         & \cw{DOOM.WAD}     & 2194 &11,159,840 \\
+  Doom II: Hell on Earth  & \cw{DOOM2.WAD}    & 2918 &14,604,584\\
+  Ultimate Doom           & \cw{UDOOM.WAD}.   & 2306 &12,408,292\\
+  The Plutonia Experiment & \cw{PLUTONIA.WAD} & 2984 &17,420,824\\
+  TNT: Evilution          &  \cw{TNT.WAD}     & 3101 &18,195,736\\
+  French Doom II          & \cw{DOOM2F.WAD}   & 2913 &14,607,420\\
+   \toprule
+    Heretic Shareware     & \cw{HERETIC1.WAD} & 1374 &5,120,920\\
+    Heretic Registered    & \cw{HERETIC.WAD}  & 2633 &14,189,976\\
+   \toprule
+  Hexen Demo         & \cw{HEXENDEMO.WAD}& 2856 &10,644,136\\
+  Hexen Registered        & \cw{HEXEN.WAD}    & 4270 &20,083,672\\
+  Hexen Deathkings of DC  & \cw{HEXDD.WAD}    &  326 & 4,440,584\\
+   \toprule
+\end{tabularx}
+\caption{WAD files in the many versions of \doom{}\protect\footnotemark}
+\end{figure}
+\par
+\footnotetext{Source: doomgod.com "Internal War Allocation Daemons"}
+\par
+\trivia{There was no need for an \cw{I\_*} abstraction layer to access the OS filesystem. Luckily, all systems now offered standard functions such as \cw{open}, \cw{lseek}, \cw{read}, and \cw{close}.}\\
+\par
+
+Lumps are identified by a unique name made of up to eight characters (which conveniently matches DOS's filename length limitation).\\
+\par
+\ccode{lumpinfo_t.c}{}
+\par
+There were more than thirty types of lump. Those associated with maps and music followed a naming convention so they could be grouped together. Not all lumps had content, some were only used to mark the beginning and end of groups of lumps.
+\pagebreak
+
+\begin{figure}[H]
+\centering  
+\begin{tabularx}{\textwidth}{ L{0.2}  L{0.8}}
+  \toprule
+  \textbf{Lump Name} &  \textbf{Usage} \\
+   
+  \toprule 
+  \cw{PLAYPAL} & The fourteen palettes used at runtime. Detailed on page \pageref{label_palettes}. \\
+  \cw{COLORMAP} & Translation tables to simulate 32 shades of each of the 256 colors. Detailed on page \pageref{diminishedlightning}. \\
+  \cw{DEMO?} &  Recordings of game sessions by id Software members. Played on game startup as "arcade style" demo.\\
+  \toprule
+  \cw{EXMY} & Zero-sized lump serving as marker for the beginning of a series of map lumps. \cw{X} is the episode number and \cw{Y} is the map id. The \cw{MAPXY} variant was used later for the same purpose.\\
+  \cw{THINGS} & All monsters, weapons, ammo, and sprites in the current map.\\
+  \cw{LINEDEFS} & All lines referenced by \cw{SECTORS}.\\
+  \cw{SIDEDEFS} & All sides referenced by \cw{LINEDEFS}. A line can have 1 or 2 sides.\\
+  \cw{VERTEXES} & All vertices in the current map.\\
+  \cw{NODES} & A binary tree allowing efficient sorting of segments. \\
+  \cw{SSECTORS} &  The sub-sectors, leaves of the binary tree in \cw{NODES}.  \\
+  \cw{SEGS} &  The segments pointed to by the \cw{SSECTORS} lumps.\\
+  \cw{SECTORS} &  Referenced by \cw{SSECTORS}. Specifies ceiling/floor height, texture, and lighting properties.\\
+  
+  \cw{BLOCKMAP} & A collision detection acceleration structure slicing the map into 128x128 blocks. Provides fast access to all \cw{LINEDEFS} neighboring any point on the map. Detailed on page \pageref{blockmapdetails}. \\
+  \cw{REJECT} &  Line of sight acceleration data structure.\\
+  \toprule
+  \cw{DP.*} &  Sound effects in PC Speaker format.\\
+  \cw{DS.*} &  Sound effects in PCM Mono, 8-bit 11kHz (22kHz supported but used only for \doomii{}'s Super shotgun).\\
+  \cw{D\_.*} & Music in MUS format (a slightly altered MIDI format).\\
+  \toprule
+  \cw{ENDOOM} & Text-mode exit screen to entice players to buy the full version. \\
+  \cw{DMXGUS} & Translation table to match a MIDI instrument with a Gravis Ultra Sound sample file.\\
+  \cw{GENMIDI} &  Bank of instrument data to play MIDI music with an OPL audio chip.\\
+  \cw{PNAMES} &  Lists all lump names used as wall patches.\\
+  \cw{TEXTURE1} &  A dictionary of all wall texture lumps referenced by \cw{SIDEDEFS}. Used to speed up access and allocation at runtime.\\  
+  \cw{F\_START} &  Zero-sized lump marking the beginning of flat textures.\\  
+  \cw{F\_END} &   Zero-sized lump marking the end of flat textures.\\  
+  \cw{S\_START} & Zero-sized lump marking start of item/monster "sprites" section. \\  
+  \cw{S\_END} & Zero-sized lump marking end of item/monster "sprites" section. \\  
+  \cw{P\_START} & Zero-sized lump marking the beginning of wall textures.\\
+  \cw{P\_END} & Zero-sized lump marking the end of wall textures.\\
+  \cw{.*} &  Many others, fonts, \cw{TITLEPIC}, \cw{HELP} screens, intermission screens, \cw{VICTORY} screen... \\  
+   \toprule
+\end{tabularx}
+%\caption{WAD lump types}
+\end{figure}
+\par
+\pagebreak
+
+
+
+
+
+
+\subsection{Lumps} \label{wad_detailled}
+The lump system is the least glamorous part of the engine but one of the coolest in its implementation and what it had to offer to players.\\
+\par
+Upon starting up, it looks at every WAD archive provided and indexes every lump found into a gigantic array of \cw{lumpinfo\_t}s cunningly named \cw{lumpinfo}. 
+If additional archives are provided via the \cw{-file} command-line parameter, lumps belonging to official id Software WADs (\cw{DOOM.WAD}, \cw{DOOM2.WAD},...) are added to the \cw{lumpinfo} array first.\\
+\par
+In the next example, \doom{} was started with the command-line:\\
+\par
+\fakedosoutput{dos_doom_wad}
+\par
+In this illustration, \cw{DOOM.WAD} is represented with only three lumps and the two additional WAD archives have only one lump each. Notice how \cw{DOOM.WAD} are listed first and how a lump name can appear several times (there are two lumps named \cw{MUSIC1}) in the index.\\
+\par
+\drawing{lumpsMaster}{Lump system index}
+\par
+Requests to the lump system are sent via a \cw{char[8]} name. The first task is to associate the lump name with an \cw{int} lump index ID. The lump array is searched sequentially in the function \cw{W\_CheckNumForName} which in order to speed up comparison uses a cool trick. Instead of comparing eight characters each time, it compares two 32-bit integers.\\
+\par
+\ccode{W_CheckNumForName.c}{}\\
+\par
+In the code listing above, you will notice that the index is searched starting from the end. This is done intentionally to allow modders to provide their own assets in WAD archives to overwrite id Software's lumps.\\
+\par
+The beauty of this system means that the original \cw{DOOM.WAD} never had to be modified or patched. Any of the assets could be overwritten -- from maps, music, sfx, to graphics\footnote{With the exception of A.I. and map names which are hard-coded in the executable.} -- with a simple command-line.\\
+\par
+\trivia{To differentiate official WADs from fan-made ones, the magic number at the beginning of a WAD archive was different. \cw{IWAD} was reserved for id Software while fan-made WADs were requested to use \cw{PWAD}.}\\
+\par
+Once a lump location has been found, a memory block is requested from the memory allocator. The content of the lump is copied from HDD to RAM and returned to the caller. \\
+\par
+The \cw{lumpinfo} array is mirrored by a \cw{lump} caching system. When a lump is requested, the index ID is used to look up a \cw{lumpcache} array first (in \cw{W\_CacheLumpNum}). A non-null pointer means the lump is already in a zone block. The lump cache slot assigns itself as the \cw{user} of the memory block, meaning the cache is automatically invalidated if the block is freed. This mechanism explains the default \cw{owner} value set to 2 which means a memory block is owned but not cached (so there is no cache to invalidate upon deallocation). In figure \ref{lumpcache}, lumps \cw{0} \& \cw{2} are not in the cache and will request WAD access.\\
+\par
+\scaleddrawing{0.9}{lumpcache}{Lump \cw{1} is in the cache. Lumps \cw{0} and \cw{2} are not.}
+\par
+\ccode{W_CacheLumpName.c}
+
+
+id Software explained the assets file format to a few individuals in the community. Within a month, the "Unofficial DOOM specs", describing the WAD format inside out, was online. With the format known and a way to inject new lumps, the modding community flourished.\\
+\par
+
+Some fans used the system to replace almost every aspect of the original game. These mods were known as "Total Conversions" (TCs). The most notorious of them all was named Aliens Total Conversion.\\
+\par
+Released in December 1994, it took Justin Fisher one year of hard work to complete. Amusingly the result revisited the Aliens motion picture theme id Software briefly considered before going for demons.\\
+\par
+ \fullimage{alientc.png}
+ \par
+ \vspace{10pt}
+ Many sound effects such as doors, weaponry, and explosions were straight from the movie. Actors' lines ("let's rock!") and screams had been digitized. All demons were replaced with aliens, eggs, facehuggers and even the alien queen. The Pulse Rifle, Grenade Launcher and Smart-Gun are there and even the chainsaw was replaced with the "Caterpillar P-5000 Work Loader". Map design wasn't neglected either. Aliens TC replicated the paranoid and scary atmosphere of the movie with the first level entirely devoid of enemies!
