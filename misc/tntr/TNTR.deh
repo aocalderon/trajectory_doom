@@ -1,0 +1,511 @@
+Patch File for DeHackEd v3.0
+# Created with WhackEd4 1.1.2 BETA
+# Note: Use the pound sign ('#') to start comment lines.
+
+Doom version = 19
+Patch format = 6
+
+
+Thing 24 (Laser Turret)
+Action sound = 78
+Death sound = 0
+Death frame = 0
+Respawn frame = 0
+Bits = 524290
+Exploding frame = 0
+Pain sound = 101
+Hit points = 999999
+Injury frame = 0
+First moving frame = 727
+Alert sound = 0
+Speed = 0
+Mass = 999999
+Pain chance = 0
+
+Thing 26 (Holo-Icon)
+First moving frame = 781
+Initial frame = 728
+Bits = 4194310
+Death frame = 749
+Injury frame = 742
+
+Thing 27 (Fake Cube)
+Death frame = 745
+Bits = 524294
+Initial frame = 757
+Hit points = 5000
+First moving frame = 0
+Death sound = 94
+Mass = 999999
+
+Thing 28 (Rocket Turret)
+Action sound = 78
+Far attack frame = 732
+Bits = 524290
+Height = 3670016
+Pain sound = 102
+Initial frame = 730
+Hit points = 999999
+First moving frame = 731
+Mass = 999999
+
+Frame 726
+Next frame = 726
+
+Frame 727
+Duration = 3
+Sprite subnumber = 0
+Next frame = 727
+
+Frame 728
+Duration = 2
+Sprite number = 53
+Sprite subnumber = 32768
+
+Frame 729
+Duration = 2
+Next frame = 728
+Sprite number = 53
+Sprite subnumber = 32768
+
+Frame 730
+Duration = 10
+Next frame = 730
+Sprite number = 52
+Sprite subnumber = 0
+
+Frame 731
+Next frame = 731
+Sprite number = 52
+Sprite subnumber = 0
+
+Frame 732
+Duration = 1
+Sprite number = 52
+Sprite subnumber = 0
+
+Frame 733
+Duration = 17
+Sprite number = 52
+Sprite subnumber = 32768
+
+Frame 734
+Sprite number = 52
+Sprite subnumber = 32769
+
+Frame 735
+Next frame = 731
+Sprite number = 52
+Sprite subnumber = 32770
+
+Frame 736
+Duration = 1
+Sprite subnumber = 0
+
+Frame 737
+Duration = 17
+Sprite subnumber = 32768
+
+Frame 738
+Duration = 3
+Sprite subnumber = 32769
+
+Frame 739
+Duration = 3
+Sprite subnumber = 32770
+
+Frame 740
+Duration = 3
+Sprite subnumber = 32770
+
+Frame 741
+Duration = 3
+Sprite subnumber = 32770
+Next frame = 727
+
+Frame 742
+Duration = 4
+Sprite number = 53
+Sprite subnumber = 32772
+
+Frame 743
+Duration = 4
+Next frame = 744
+Sprite number = 53
+Sprite subnumber = 32773
+
+Frame 744
+Next frame = 781
+Sprite number = 53
+Sprite subnumber = 32770
+
+Frame 745
+Duration = 4
+Sprite number = 32
+Sprite subnumber = 0
+
+Frame 746
+Duration = 4
+Next frame = 793
+Sprite number = 32
+Sprite subnumber = 1
+
+Frame 747
+Duration = 4
+Sprite number = 32
+Sprite subnumber = 2
+
+Frame 748
+Duration = 4
+Sprite number = 32
+Sprite subnumber = 3
+
+Frame 749
+Duration = 6
+Sprite number = 53
+Sprite subnumber = 32772
+
+Frame 750
+Duration = 6
+Next frame = 752
+Sprite number = 53
+Sprite subnumber = 32773
+
+Frame 751
+Duration = -1
+Sprite number = 53
+Sprite subnumber = 32774
+
+Frame 752
+Duration = 4
+Sprite number = 53
+Sprite subnumber = 32771
+
+Frame 753
+Duration = 2
+Sprite number = 53
+Sprite subnumber = 32773
+
+Frame 754
+Duration = 4
+Sprite number = 53
+Sprite subnumber = 32772
+
+Frame 755
+Duration = 16
+Sprite number = 53
+Sprite subnumber = 32773
+
+Frame 756
+Duration = 96
+Next frame = 751
+Sprite number = 53
+Sprite subnumber = 32774
+
+Frame 757
+Duration = 3
+Next frame = 758
+Sprite number = 54
+Sprite subnumber = 32768
+
+Frame 758
+Duration = 3
+Sprite number = 54
+Sprite subnumber = 32769
+
+Frame 759
+Duration = 3
+Sprite number = 54
+Sprite subnumber = 32770
+
+Frame 760
+Duration = 3
+Next frame = 757
+Sprite number = 54
+Sprite subnumber = 32771
+
+Frame 761
+Sprite subnumber = 0
+
+Frame 762
+Sprite subnumber = 0
+
+Frame 767
+Sprite subnumber = 0
+
+Frame 768
+Sprite subnumber = 0
+
+Frame 769
+Sprite subnumber = 0
+
+Frame 770
+Sprite subnumber = 0
+
+Frame 771
+Sprite subnumber = 0
+
+Frame 772
+Sprite subnumber = 0
+
+Frame 773
+Sprite subnumber = 0
+
+Frame 774
+Sprite subnumber = 0
+
+Frame 775
+Sprite subnumber = 0
+
+Frame 776
+Sprite subnumber = 0
+
+Frame 777
+Sprite subnumber = 0
+
+Frame 781
+Duration = 2
+Sprite subnumber = 32770
+
+Frame 782
+Duration = 2
+Sprite subnumber = 32771
+Next frame = 781
+
+Pointer 404 (Frame 727)
+Codep Frame = 176
+
+Pointer 405 (Frame 728)
+Codep Frame = 174
+
+Pointer 406 (Frame 729)
+Codep Frame = 174
+
+Pointer 407 (Frame 730)
+Codep Frame = 174
+
+Pointer 409 (Frame 732)
+Codep Frame = 157
+
+Pointer 410 (Frame 733)
+Codep Frame = 184
+
+Pointer 411 (Frame 734)
+Codep Frame = 184
+
+Pointer 412 (Frame 735)
+Codep Frame = 685
+
+Pointer 413 (Frame 736)
+Codep Frame = 157
+
+Pointer 415 (Frame 738)
+Codep Frame = 184
+
+Pointer 416 (Frame 739)
+Codep Frame = 648
+
+Pointer 417 (Frame 740)
+Codep Frame = 648
+
+Pointer 418 (Frame 741)
+Codep Frame = 648
+
+Pointer 419 (Frame 743)
+Codep Frame = 779
+
+Pointer 422 (Frame 750)
+Codep Frame = 780
+
+Pointer 423 (Frame 751)
+Codep Frame = 783
+
+Text 7 6
+SLIME16BLOOD1
+Text 7 5
+RROCK14ZLIM1
+Text 7 5
+RROCK07ZLIM2
+Text 7 7
+RROCK17ROCKCK1
+Text 7 5
+RROCK13ZLIM3
+Text 7 5
+RROCK19ZLIM4
+Text 14 9
+THE CYBERDEMONSIEGE COW
+Text 8 11
+Berserk!Rip & Tear!
+Text 4 4
+SSWVTURR
+Text 4 4
+KEENRTUR
+Text 4 4
+BBRNICON
+Text 389 379
+You've fought your way out of the infested
+experimental labs.   It seems that UAC has
+once again gulped it down.  With their
+high turnover, it must be hard for poor
+old UAC to buy corporate health insurance
+nowadays..
+
+Ahead lies the military complex, now
+swarming with diseased horrors hot to get
+their teeth into you. With luck, the
+complex still has some warlike ordnance
+laying around.SUCCESS! YOU HAVE SENT A MESSAGE TO EARTH
+WARNING THEM OF THE INCOMING DEMONIC
+FLEET. A RATHER UNPLEASANT SURPRISE
+AWAITS THEM WHEN THEY GET THERE.
+
+WITH EARTH OUT OF HARM'S WAY, IT'S TIME
+TO TAKE THIS FIGHT TO HELL. THERE'S A SHIP
+NOT TOO FAR FROM YOUR LOCATION AT THE
+BOTTOM OF A THERMAL VENT. YOU CAN USE
+IT TO FLY UP TO THE DEMONIC SHIP AND SET
+IT ON A RETURN COURSE TO HELL.
+Text 310 307
+You hear the grinding of heavy machinery
+ahead.  You sure hope they're not stamping
+out new hellspawn, but you're ready to
+ream out a whole herd if you have to.
+They might be planning a blood feast, but
+you feel about as mean as two thousand
+maniacs packed into one mad killer.
+
+You don't plan to go down easy.YOU'VE MADE IT TO THE SHIP! BRINGING THE
+ENGINES TO LIFE YOU PLOT A COURSE FOR THE
+HELL SHIP ORBITING IO.
+
+THE HELL SHIP SEES YOUR APPROACH AND FIRES
+TOWARD YOU. YOU TAKE A DIRECT HIT AND ALTER
+COURSE FOR SOME ASTEROIDS THAT HOUSE
+ABANDONED UAC BASES. YOU NEED TO FIND
+SOME REPLACEMENT PARTS FOR YOUR SHIP! 
+Text 309 307
+The vista opening ahead looks real damn
+familiar. Smells familiar, too -- like
+fried excrement. You didn't like this
+place before, and you sure as hell ain't
+planning to like it now. The more you
+brood on it, the madder you get.
+Hefting your gun, an evil grin trickles
+onto your face. Time to take some names.THE CONTROLS OF THE HELL SHIP LIE BEFORE
+YOU. THERE'S ONLY ONE TASK LEFT FOR YOU TO
+DO NOW; SET THE SHIP ON A RETURN COURSE
+TO ITS POINT OF ORIGIN.
+
+HELL... IT'S CHANGED SINCE YOU'VE LAST
+BEEN HERE, ADVANCED BIOTECH LITTERS THE
+LANDSCAPE. THE DEMONS HAVE USED UAC'S
+WEAPONRY TO ADVANCE THEIR OWN TECHNOLOGY.
+Text 385 380
+Suddenly, all is silent, from one horizon
+to the other. The agonizing echo of Hell
+fades away, the nightmare sky turns to
+blue, the heaps of monster corpses start 
+to evaporate along with the evil stench 
+that filled the air. Jeeze, maybe you've
+done it. Have you really won?
+
+Something rumbles in the distance.
+A blue light begins to glow inside the
+ruined skull of the demon-spitter.THE SERVERS THAT HELD THE VIRTUAL
+CONSCIOUSNESS OF THE ONCE-MIGHTY ICON OF
+SIN EXPLODE TO PIECES AROUND YOU. YOU'VE
+PUT THIS INDUSTRIAL REVILUTION TO AN END.
+YOU SIT DOWN TO WAIT FOR THE FINE FOLKS OF
+EARTH TO COME AND GET YOU. IT SHOULDN'T BE
+A LONG WAIT.
+
+OF COURSE, THAT'S ASSUMING THAT THE EARTH'S
+DEFENCES HELD UP AGAINST THE FLEET OF
+HELL SHIPS THAT WERE HEADED THEIR WAY...
+Text 173 162
+What now? Looks totally different. Kind
+of like King Tut's condo. Well,
+whatever's here can't be any worse
+than usual. Can it?  Or maybe it's best
+to let sleeping gods lie..A ONCE-GREAT GOD WATCHES YOUR EVERY
+MOVE AS YOU TRAVERSE TO THE HELL SHIP.
+IF YOU WANT TO GO TO HELL YOU MUST BE
+WORTHY ENOUGH TO MAKE IT THROUGH HIS
+REALM FIRST.
+Text 353 92
+Time for a vacation. You've burst the
+bowels of hell and by golly you're ready
+for a break. You mutter to yourself,
+Maybe someone else can kick Hell's ass
+next time around. Ahead lies a quiet town,
+with peaceful flowing water, quaint
+buildings, and presumably no Hellspawn.
+
+As you step off the transport, you hear
+the stomp of a cyberdemon's iron shoe.HAVING OVERCOME THE TRIALS OF
+ANUBIS. HE SENDS YOU BACK TO
+YOUR OWN REALM... OR SO IT SEEMS.
+Text 23 11
+level 1: system control1: Uprising
+Text 18 13
+level 2: human bbq2: Geothermal
+Text 22 16
+level 3: power control3: Access Denied
+Text 17 16
+level 4: wormhole4: Blood Factory
+Text 15 11
+level 5: hanger5: G. Shift
+Text 20 23
+level 6: open season6: Communications Relay
+Text 15 15
+level 7: prison7: N.M. Station
+Text 14 15
+level 8: metal8: F. of Bullet
+Text 19 17
+level 9: stronghold9: Bunker Complex
+Text 20 15
+level 10: redemption10: U. Activity
+Text 26 14
+level 11: storage facility11: Pourriture
+Text 16 16
+level 12: crater12: Transduction
+Text 27 19
+level 13: nukage processing13: Hangman's Curse
+Text 21 18
+level 14: steel works14: Abandoned Port
+Text 19 15
+level 15: dead zone15: Nukage Zone
+Text 25 15
+level 16: deepest reaches16: Devil's Den
+Text 25 17
+level 17: processing area17: Spider Colony
+Text 14 15
+level 18: mill18: Hells Signs
+Text 29 18
+level 19: shipping/respawning19: The Crash Site
+Text 28 19
+level 20: central processing20: Portal Facility
+Text 31 17
+level 21: administration center21: Bloody Garden
+Text 17 19
+level 22: habitat22: Pharaoh's Claim
+Text 30 14
+level 23: lunar mining project23: Desolation
+Text 16 10
+level 24: quarry24: Redrum
+Text 21 11
+level 25: baron's den25: Malware
+Text 19 15
+level 26: ballistyx26: Revengineer
+Text 20 22
+level 27: mount pain27: The Visage Of Time
+Text 14 15
+level 28: heck28: S. Facility
+Text 20 21
+level 29: river styx29: Across the B. Sea
+Text 19 13
+level 30: last call30: Malignata
+Text 17 10
+level 31: pharaoh31: Anubis
+Text 19 11
+level 32: caribbean32: Duality
