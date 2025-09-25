@@ -1,4 +1,0 @@
-$ clang -c z_zone.c 
-$ nm -u z_zone.o | grep I_
-_I_Error
-_I_ZoneBase

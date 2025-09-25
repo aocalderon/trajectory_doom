@@ -1,3 +1,0 @@
-$ ./doom -noblit -timedemo demo1
-2134 gametics in 6329 realtics
-$
