@@ -18,6 +18,8 @@
 
 #include <stdio.h>
 
+#include <time.h>
+
 #include "i_system.h"
 #include "z_zone.h"
 #include "m_random.h"
@@ -124,7 +126,39 @@ void P_XYMovement (mobj_t* mo)
     player_t*	player;
     fixed_t	xmove;
     fixed_t	ymove;
-			
+    extern int gametic;
+
+    // Changes in trajectory-doom to track player position...
+    // Only log for the console player...
+    if (mo == players[consoleplayer].mo)
+    {
+        static int print_countdown = 0; // a timer...
+
+        // Decrement the timer each tic
+        print_countdown--;
+
+        // If the timer has run out...
+        if (print_countdown <= 0)
+        {
+            print_countdown = TICRATE; // TICRATE is a constant, usually 35...
+            time_t now = time(NULL);
+            struct tm *t = localtime(&now);
+            char buf[64];
+            strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", t);
+        
+            double ang_deg = (mo->angle / (double)0x100000000ULL) * 360.0;
+            printf("%s\t %d\t %d\t%d\t%d\t %.2f\t %d\t%d\n",
+                   buf, gametic,
+                   mo->x >> FRACBITS,
+                   mo->y >> FRACBITS,
+                   mo->z >> FRACBITS,
+                   ang_deg,
+                   mo->momx >> FRACBITS,
+                   mo->momy >> FRACBITS
+                );
+        }
+    }
+
     if (!mo->momx && !mo->momy)
     {
 	if (mo->flags & MF_SKULLFLY)

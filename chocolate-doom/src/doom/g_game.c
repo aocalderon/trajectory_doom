@@ -20,6 +20,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 #include "doomdef.h" 
 #include "doomkeys.h"
@@ -1849,6 +1850,14 @@ G_InitNew
 	episode = 3;
     }
     */
+
+    // printing episode info...
+    time_t now = time(NULL);
+    struct tm *t = localtime(&now);
+    char buf[64];
+    strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", t);
+    printf("When: %s Episode: %d Map: %d\n", buf, episode, map);
+    printf("Timestamp, Pos X, Pos Y, Health\n");
 
     if (skill > sk_nightmare)
 	skill = sk_nightmare;
