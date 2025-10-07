@@ -13,7 +13,7 @@ Then,
 make -j4
 ```
 
-Finally from chocolate-doom folder
+Finally from `chocolate-doom` folder
 
 ```
 src/chocolate-doom -iwad ../misc/OriginalWADs/DOOM2.WAD
