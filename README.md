@@ -1,5 +1,5 @@
 <p align="center" width="100%">
-    <img width="40%" src="misc/doomguy_geek.png"> 
+    <img width="50%" src="misc/doomguy_geek.png"> 
 </p>
 
 # Trajectory Doom
