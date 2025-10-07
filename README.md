@@ -1,4 +1,4 @@
-
+![Trajectory Doom](misc/doomguy_geek.png)
 
 Prerequisits
 
