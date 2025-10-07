@@ -1,4 +1,7 @@
 ![Trajectory Doom](misc/doomguy_geek.png)
+<p align="center" width="100%">
+    <img width="33%" src="misc/doomguy_geek.png"> 
+</p>
 
 Prerequisits
 
