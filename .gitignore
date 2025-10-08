@@ -2,14 +2,51 @@
 *.o
 *.obj
 
-# Libraries
-*.so
-*.dll
-*.dylib
-*.a
-*.lib
-
 # Executables
 *.exe
 *.out
-*.app
+a.out
+*.bin
+
+# Libraries
+*.lib
+*.a
+*.so
+*.dll
+
+# Debug information
+*.dSYM/
+*.pdb
+
+# Build directories
+build/
+bin/
+obj/
+
+# Temporary files
+*~
+*.bak
+*.swp
+*.tmp
+
+# IDE-specific files (e.g., Visual Studio, VS Code, Eclipse, CLion)
+.vscode/
+.idea/
+*.user
+*.suo
+*.VC.db
+*.VC.opendb
+*.sln.docstates
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+ipch/
+Debug/
+Release/
+x64/
+Win32/
+
+# Other common files to ignore
+.DS_Store
+Thumbs.db
