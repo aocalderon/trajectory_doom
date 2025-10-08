@@ -16,7 +16,7 @@ First, you need to install the necessary SDL libraries required to build the pro
 
 ```bash
 sudo apt update
-sudo apt install libsdl2-dev libsdl2-mixer-dev libsdl2-net-dev
+sudo apt install libsdl2-dev libsdl2-mixer-dev libsdl2-net-dev autoconf automake libtool build-essential
 ````
 
 ### 2\. Build from Source
