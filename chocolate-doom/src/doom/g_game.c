@@ -1857,7 +1857,7 @@ G_InitNew
     char buf[64];
     strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", t);
     printf("When: %s Episode: %d Map: %d\n", buf, episode, map);
-    printf("Timestamp, Pos X, Pos Y, Health\n");
+    printf("timestamp\t tic\t x\t y\t z\t angle\t momx\t momy\n");
 
     if (skill > sk_nightmare)
 	skill = sk_nightmare;

@@ -147,14 +147,15 @@ void P_XYMovement (mobj_t* mo)
             strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", t);
         
             double ang_deg = (mo->angle / (double)0x100000000ULL) * 360.0;
-            printf("%s\t %d\t %d\t%d\t%d\t %.2f\t %d\t%d\n",
+            printf("%s\t %d\t %d\t%d\t%d\t %.2f\t %d\t%d \t%d\n",
                    buf, gametic,
                    mo->x >> FRACBITS,
                    mo->y >> FRACBITS,
                    mo->z >> FRACBITS,
                    ang_deg,
                    mo->momx >> FRACBITS,
-                   mo->momy >> FRACBITS
+                   mo->momy >> FRACBITS,
+                   mo->subsector->sector->tag
                 );
         }
     }
