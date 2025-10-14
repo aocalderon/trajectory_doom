@@ -41,4 +41,4 @@ From the project's root directory, execute the following command, making sure to
 src/chocolate-doom -iwad /path/to/your/DOOM.WAD
 ```
 
-Enjoy the game\!
+Enjoy\!
