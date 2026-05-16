@@ -197,7 +197,7 @@ am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.hin \
 	$(top_srcdir)/autotools/missing \
 	$(top_srcdir)/pkg/osx/Info.plist.in AUTHORS ChangeLog INSTALL \
 	NEWS.md README.md autotools/ar-lib autotools/compile \
-	autotools/config.guess autotools/config.sub \
+	autotools/config.guess autotools/config.sub autotools/depcomp \
 	autotools/install-sh autotools/missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
@@ -255,7 +255,7 @@ AUTOMAKE = ${SHELL} '/opt/trajectory_doom/chocolate-doom/autotools/missing' auto
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -O2 -g -Wall -Wdeclaration-after-statement -Wredundant-decls  -I/usr/include/SDL2 -D_REENTRANT   -I/usr/include/libpng16  
+CFLAGS = -O2 -g -Wall -Wdeclaration-after-statement -Wredundant-decls -std=gnu11 -I/usr/include/SDL2 -D_REENTRANT   -I/usr/include/libpng16  
 CPPFLAGS = 
 CSCOPE = cscope
 CTAGS = ctags
@@ -280,7 +280,7 @@ LIBOBJS =
 LIBS = -lm 
 LTLIBOBJS = 
 MAKEINFO = ${SHELL} '/opt/trajectory_doom/chocolate-doom/autotools/missing' makeinfo
-MKDIR_P = /usr/bin/mkdir -p
+MKDIR_P = mkdir -p
 OBJDUMP = objdump
 OBJEXT = o
 PACKAGE = chocolate-doom

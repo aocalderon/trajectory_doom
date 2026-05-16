@@ -133,7 +133,6 @@ void P_XYMovement (mobj_t* mo)
     if (mo == players[consoleplayer].mo)
     {
         static int print_countdown = 0; // a timer...
-
         // Decrement the timer each tic
         print_countdown--;
 
@@ -145,17 +144,29 @@ void P_XYMovement (mobj_t* mo)
             struct tm *t = localtime(&now);
             char buf[64];
             strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", t);
+            player = mo->player;
+            int current_health = player->health;
+            int current_armor = player->armorpoints;
+            int ammo_type = weaponinfo[player->readyweapon].ammo;
+            int current_ammo = 0;
+        
+            // Ensure the weapon actually uses ammo (e.g. fists/chainsaw do not)
+            if (ammo_type != am_noammo && ammo_type < NUMAMMO) {
+                current_ammo = player->ammo[ammo_type];
+            }
         
             double ang_deg = (mo->angle / (double)0x100000000ULL) * 360.0;
-            printf("%s\t %d\t %d\t%d\t%d\t %.2f\t %d\t%d \t%d\n",
-                   buf, gametic,
-                   mo->x >> FRACBITS,
-                   mo->y >> FRACBITS,
-                   mo->z >> FRACBITS,
-                   ang_deg,
-                   mo->momx >> FRACBITS,
-                   mo->momy >> FRACBITS,
-                   mo->subsector->sector->tag
+            printf("%s\t %d\t %d\t%d\t%d\t %.2f\t %d\t%d \t%3d\t%3d\t%3d\n",
+                    buf, gametic,
+                    mo->x >> FRACBITS,
+                    mo->y >> FRACBITS,
+                    mo->z >> FRACBITS,
+                    ang_deg,
+                    mo->momx >> FRACBITS,
+                    mo->momy >> FRACBITS,
+                    current_armor,
+                    current_health,
+                    current_ammo
                 );
         }
     }
