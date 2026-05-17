@@ -154,9 +154,16 @@ void P_XYMovement (mobj_t* mo)
             if (ammo_type != am_noammo && ammo_type < NUMAMMO) {
                 current_ammo = player->ammo[ammo_type];
             }
-        
+
+            // Computing sector_id by the position (i,j), where 'i' is the column and 'j' is the row of a 
+            // 250x250 grid covering the entire map. This is a simple way to categorize the player's location into sectors.
+            int i = (mo->x >> FRACBITS) / 250;
+            int j = (mo->y >> FRACBITS) / 250; 
+            char sector_id[64];
+            sprintf(sector_id, "(%d,%d)", i, j);
+
             double ang_deg = (mo->angle / (double)0x100000000ULL) * 360.0;
-            printf("%s\t %d\t %d\t%d\t%d\t %.2f\t %d\t%d \t%3d\t%3d\t%3d\n",
+            printf("%s\t %d\t %d\t%d\t%d\t %.2f\t %d\t%d \t%3d\t%3d\t%3d\t%s\n",
                     buf, gametic,
                     mo->x >> FRACBITS,
                     mo->y >> FRACBITS,
@@ -166,7 +173,8 @@ void P_XYMovement (mobj_t* mo)
                     mo->momy >> FRACBITS,
                     current_armor,
                     current_health,
-                    current_ammo
+                    current_ammo,
+                    sector_id
                 );
         }
     }
