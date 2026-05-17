@@ -45,9 +45,9 @@ make -j4
 
 ### 3\. Run the Game
 
-To run the game, you need to provide a path to a Doom IWAD file (e.g., `DOOM.WAD`, `DOOM2.WAD`).
-[!NOTE] 
-Have a look at misc/OriginalWADs folder... 
+To run the game, you need to provide a path to a Doom IWAD file (e.g., `DOOM.WAD`, `DOOM2.WAD`)[^1].
+
+[^1]: Have a look at `misc/OriginalWADs` folder... 
 
 From the project's root directory, execute the following command, making sure to adjust the path to your WAD file:
 
