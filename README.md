@@ -58,7 +58,7 @@ src/chocolate-doom -iwad /path/to/your/DOOM.WAD
 Other useful parameters for debugging are:
 
 ```bash
-src/chocolate-doom src/chocolate-doom -warp 2 4 -geometry 640x480 -iwad /path/to/your/DOOM.WAD
+src/chocolate-doom -warp 2 4 -geometry 640x480 -iwad /path/to/your/DOOM.WAD
 ```
 * `-warp E M`, where E stand for 'Episode' and M stand for 'Map'.  It will start chocolate-doom in the specific episode E and map M.
 * `-geometry WxH`, where W stand for 'Width' and H stand for 'Height'.  It will start chocolate-doom in a window with WxH dimensions.  It can be useful to monitor the console output during the game.
